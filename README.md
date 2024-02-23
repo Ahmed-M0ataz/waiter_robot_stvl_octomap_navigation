@@ -106,8 +106,6 @@
 
 1- Navigation is robust in tables or the kitchen but may fail when people come or when the map changes.
 
-![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_navigation_pkg/media/octomap_grid_navigation.gif)
-
 2- Spatio Temporal Voxel Layer (STVL) Algorithm
 
 An algorithm for real-time 3D obstacle avoidance.
@@ -126,8 +124,7 @@ Powerful octree implementation for 3D mapping. Can build navigation and collisio
 
 - Navigation with stvl and octomap 
 
-   ![navigation 3d with stvl](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/octomap_grid_navigation.gif)
-
+![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_navigation_pkg/media/octomap_grid_navigation.gif)
 
 
 
@@ -140,8 +137,8 @@ Powerful octree implementation for 3D mapping. Can build navigation and collisio
 sudo apt-get install ros-<rosdistro>-rosbridge-server
 
 ```
-   ![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/web_based_navigation.gif)
+   ![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_navigation_pkg/media/web_based_navigation.gif)
 
 ### Video explain :
 
-![waiter robot navigation video](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+[waiter robot navigation video](https://youtu.be/VVi5_CY2TE8)
