@@ -126,7 +126,7 @@ Powerful octree implementation for 3D mapping. Can build navigation and collisio
 
 - Navigation with stvl and octomap 
 
-    ![navigation 3d with stvl](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+![navigation 3d with stvl](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
 
 
 ### Web based Navigation
@@ -140,6 +140,7 @@ sudo apt-get install ros-<rosdistro>-rosbridge-server
 ```
 
 ![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/web_based_navigation.gif)
+
 ### Video explain :
 
 ![waiter robot navigation video](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
