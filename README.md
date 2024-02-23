@@ -3,7 +3,7 @@
 ## First: Robot Description Package
 
 1. Write a URDF for the robot using XML and use xacro to make the code in separate files for readability.
-   - ![Image: Robot](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_description_pkg/media/waiter_robot.png)
+   - ![Image: Robot](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_description_pkg/media/waiter_robot.png)
 
 2. Git Gazebo environment with real-world problems to ensure accurate navigation.
    - World includes:
@@ -15,19 +15,19 @@
     ```bash
     roslaunch waiter_robot_description_pkg robot_description.launch
     ```
-- ![Image: Gazebo](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_description_pkg/media/waiter_robot_world.png)
+- ![Image: Gazebo](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_description_pkg/media/waiter_robot_world.png)
 
 ## Second: Build Map
 
 1. Implement Gmapping to build a 2D map.
-   ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_gmapping_pkg/media/mapping_cafe.png)
+   ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/mapping_cafe.png)
 
-    ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_gmapping_pkg/media/map_cafe_2d.png)
+    ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/map_cafe_2d.png)
 
 - Problems with 2D map:
   - Laser can't detect glasses or edges for tables.
 
-    ![Robot navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_gmapping_pkg/media/map_cafe_2d.png)
+    ![Robot navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/map_cafe_2d.png)
 
 2. Explore 3D mapping options like [Octo-map](https://github.com/OctoMap/octomap_mapping) 
 
@@ -72,7 +72,7 @@
     roslaunch waiter_robot_octomap_pkg octomap_mapping.launch --screen 2> >(grep -Ev 'TF_REPEATED_DATA|buffer_core.cpp' | grep -v '^$')
 ```
 
-   ![octo mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/octomap_mapping.png)
+   ![octo mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_mapping.png)
 
 4. After mapping with Octomap, save the generated map:
 
@@ -96,7 +96,7 @@
 
    After experimentation, the optimal threshold for occupied and free cells is 60.
 
-   ![map 3D](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/octo_map_2d.png)
+   ![map 3D](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octo_map_2d.png)
 
 
 
@@ -107,7 +107,7 @@
 
 1- Navigation is robust in tables or the kitchen but may fail when people come or when the map changes.
 
-   ![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+   ![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
 
 2- Spatio Temporal Voxel Layer (STVL) Algorithm
 
@@ -127,7 +127,7 @@ Powerful octree implementation for 3D mapping. Can build navigation and collisio
 
 - Navigation with stvl and octomap 
 
-    ![navigation 3d with stvl](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+    ![navigation 3d with stvl](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
 
 
 ### Web based Navigation
@@ -140,7 +140,7 @@ sudo apt-get install ros-<rosdistro>-rosbridge-server
 
 ```
 
-![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/web_based_navigation.gif)
+![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/web_based_navigation.gif)
 ### Video explain :
 
-![waiter robot navigation video](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/main/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+![waiter robot navigation video](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
