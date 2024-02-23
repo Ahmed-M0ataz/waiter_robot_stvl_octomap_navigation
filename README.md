@@ -106,7 +106,7 @@
 
 1- Navigation is robust in tables or the kitchen but may fail when people come or when the map changes.
 
-   ![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
+![navigation octomap](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octomap_grid_navigation.gif)
 
 2- Spatio Temporal Voxel Layer (STVL) Algorithm
 
