@@ -1,0 +1,16 @@
+<launch>
+
+    <arg name="map_path" default="$(find waiter_robot_octomap_pkg)/maps/my_octomap.bt" />
+    <arg name="rvizFile" default="$(find waiter_robot_octomap_pkg)/rviz/octomap_world.rviz" />
+	
+    <!-- Octomap application -->
+    <node name="octomap_server" pkg="octomap_server" type="octomap_server_node"
+        args="$(arg map_path)">
+    </node>
+    
+     <!-- RViz -->
+    <!-- <node pkg="rviz" type="rviz" output="screen" name="rviz"
+        args="-d $(arg rvizFile)">
+    </node> -->
+
+</launch>

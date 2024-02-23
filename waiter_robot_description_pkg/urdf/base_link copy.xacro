@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="waiter_robot">
+
+
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+
+
+  <!-- <xacro:include filename="$(find waiter_robot_description_pkg)/urdf/wheels.urdf.xacro" /> -->
+<xacro:include filename="$(find waiter_robot_description_pkg)/urdf/wheel_second.xacro" />
+
+<xacro:include filename="$(find waiter_robot_description_pkg)/urdf/caster_wheel.xacro" />
+
+<xacro:include filename="$(find waiter_robot_description_pkg)/urdf/lidar.xacro" />
+<xacro:include filename="$(find waiter_robot_description_pkg)/urdf/_d435i.urdf.xacro" />
+<xacro:arg name="use_nominal_extrinsics" default="true" />
+<!-- <link name="odom"/>
+<joint name="odom_footprint" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  <parent link="odom"/>
+  <child link="base_footprint"/>
+  <axis xyz="0.0 0.0 0.0"/>
+  <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+</joint> -->
+<link name="base_footprint">
+  <!-- <inertial>
+    <mass value="0.0001"/>
+    <origin xyz="0 0 0"/>
+    <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+  </inertial> -->
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+</link>
+<gazebo reference="base_footprint">
+  <turnGravityOff>false</turnGravityOff>
+</gazebo>
+
+     <link name="base_link_chassis">
+      <inertial>
+        <origin
+          xyz="0.0030946 0.78250032638821E-11 0.053305"
+          rpy="0 0 0" />
+        <mass
+          value="15.873" />
+        <inertia
+          ixx="2.074276574699151"
+          ixy="-0.03781944357671E-10"
+          ixz="0.00763014265820928"
+          iyy="0.64933255189991"
+          iyz="0.09578155845563E-12"
+          izz="0.1239326987473" />
+      </inertial>
+        <visual name="">
+          <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://waiter_robot_description_pkg/meshes/base_link.STL"  >
+                   
+                </mesh>
+                <!-- <box size="0.6 0.4 0.2"/> -->
+
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+          <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://waiter_robot_description_pkg/meshes/base_link.STL" >
+            </mesh>            
+            </geometry>
+        </collision>
+
+     </link>
+
+     <joint name="foot_print_base_link" type="fixed">
+        <origin xyz="0.0 0.0 0.07" rpy="0.0 0.0 0.0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link_chassis"/>
+        <axis xyz="0.0 0.0 0.0"/>
+     </joint>
+
+<!-- old wheel that right wheel -->
+<!-- <xacro:robot_wheel prefix="left" origin="-0.189 0.0 0.0" rpy="0.0 0.0 1.5707963267949"/>
+<xacro:robot_wheel prefix="right" origin="0.189 0.0 0.0" rpy="0.0 0.0 1.5707963267949"/> 
+ -->
+
+ <!-- new wheel that i will remove it in future -->
+
+ <xacro:robot_wheel prefix="left" origins="-0.189 0.0 0.068" />
+<xacro:robot_wheel prefix="right" origins="0.189 0.0 0.068" /> 
+
+<xacro:robot_caster_wheel prefix="front_right" origin="0.11 0.156 0.0"/>
+<xacro:robot_caster_wheel prefix="front_left" origin="-0.11 0.156 0.0"/>
+<xacro:robot_caster_wheel prefix="back_left" origin="-0.11 -0.194 0.0"/>
+<xacro:robot_caster_wheel prefix="back_right" origin="0.11 -0.194 0.0"/>
+
+
+  <xacro:sensor_d435i parent="base_link_chassis" use_nominal_extrinsics="$(arg use_nominal_extrinsics)">
+    <origin xyz="0.0 0.26 0.877" rpy="0.0 0.0 1.57" />
+  </xacro:sensor_d435i>
+
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+  
+      <!-- Set to true to swap right and left wheels, defaults to true -->
+      <legacyMode>true</legacyMode>
+
+      <rosDebugLevel>Debug</rosDebugLevel>
+
+      <!-- to publish transforms for the wheel links, defaults to false -->
+      <publishWheelTF>false</publishWheelTF>
+
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+      <publishTf>true</publishTf>
+  
+      <publishWheelJointState>false</publishWheelJointState>
+
+      <alwaysOn>true</alwaysOn>
+      <!-- Plugin update rate in Hz -->
+      <updateRate>100.0</updateRate>
+
+      <!-- Name of left joint, defaults to `left_joint` -->
+      <leftJoint>left_wheel_joint</leftJoint>
+  
+      <!-- Name of right joint, defaults to `right_joint` -->
+      <rightJoint>right_wheel_joint</rightJoint>
+  
+      <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+      <wheelSeparation>0.368</wheelSeparation>
+  
+      <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+      <wheelDiameter>0.14</wheelDiameter>
+      <broadcastTF>1</broadcastTF>
+
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>2.0</wheelAcceleration>
+  
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>10</wheelTorque>
+  
+      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+      <commandTopic>cmd_vel</commandTopic>
+  
+      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+      <odometryTopic>odom</odometryTopic>
+  
+      <!-- Odometry frame, defaults to `odom` -->
+      <odometryFrame>odom</odometryFrame>
+  
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <!-- <robotNamespace>/waiter</robotNamespace> -->
+
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+  
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>world</odometrySource>
+  
+  
+      <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <!-- <publishOdom>true</publishOdom> -->
+      <publishOdomTF>true</publishOdomTF>
+
+
+    </plugin>
+  </gazebo>
+
+
+</robot>

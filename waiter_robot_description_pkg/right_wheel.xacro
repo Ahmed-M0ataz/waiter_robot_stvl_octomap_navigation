@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="wheels" >
+
+    <!-- Wheels -->
+    <xacro:property name="wheel_radius" value="0.07" /> 
+    <xacro:property name="wheel_height" value="0.02" />
+    <xacro:property name="wheel_mass" value="2.5" /> <!-- in kg-->
+    
+<!--######################################################################-->
+
+<link name="right_wheel_link">
+  <inertial>
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <mass
+      value="0.989823090734284" />
+    <inertia
+      ixx="0.00167927627906862"
+      ixy="3.96697086761498E-08"
+      ixz="-4.97321436125187E-19"
+      iyy="0.00167924910773203"
+      iyz="3.99026302024618E-07"
+      izz="0.00288692436393867" />
+  </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+  
+    </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+
+        </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="right_wheel_link">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp  value="10000000.0" />
+    <kd  value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  
+  <joint name="right_wheel_joint" type="continuous">
+    <origin rpy ="0.0 0.0 1.5707963267949" xyz= "0.189 0.0 0.0"/>
+    <parent link ="base_link"/>
+    <child link ="right_wheel_link"/>
+    <!-- <axis xyz="0.0 0.0 -1"/> -->
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/> 
+  </joint>
+
+  <gazebo reference="right_wheel_link">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp  value="10000000.0" />
+    <kd  value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <transmission name="right_wheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_wheel_joint" />
+    <actuator name="right_wheel_joint_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+ 
+
+
+
+
+<!--######################################################################-->
+
+</robot>
