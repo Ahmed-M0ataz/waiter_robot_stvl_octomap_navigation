@@ -22,7 +22,6 @@
 1. Implement Gmapping to build a 2D map.
    ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/mapping_cafe.png)
 
-    ![Robot Mapping](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/map_cafe_2d.png)
 
 - Problems with 2D map:
   - Laser can't detect glasses or edges for tables.
