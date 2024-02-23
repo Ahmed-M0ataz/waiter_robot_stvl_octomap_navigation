@@ -97,7 +97,7 @@
 
    ![map 3D](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_octomap_pkg/media/octo_map_2d.png)
 
-
+   ![web based navigation](https://github.com/Ahmed-M0ataz/waiter_robot_stvl_octomap_navigation/blob/master/waiter_robot_gmapping_pkg/media/web_based_navigation.gif)
 
 # Navigation
 
